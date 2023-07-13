@@ -1,14 +1,18 @@
 import RootLayout from "./layout";
-export const Home = () => {
+import MainContainer from "../components/mainContainer/layout";
+import Home from "../page";
+
+export const Day = () => {
   return (
     <>
       <RootLayout>
-        <main>
-          <h1>PRivet</h1>
-        </main>
+        <MainContainer>
+          <Home />
+          <div>day</div>
+        </MainContainer>
       </RootLayout>
     </>
   );
 };
 
-export default Home;
+export default Day;
