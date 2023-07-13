@@ -1,6 +1,6 @@
 import Link from "next/link";
-import "../../app/globals.scss";
-import avatar from "../../../public/images/avatar.jpg";
+import "../app/globals.scss";
+import avatar from "../public/images/avatar.jpg";
 
 export default function Home() {
   return (
@@ -18,7 +18,7 @@ export default function Home() {
         </div>
         <div className="navigation-groups">
           <ul>
-            <li></li>
+            <Link href="/day">Home</Link>
             <li>Importand</li>
             <li>Planned</li>
             <li>All</li>

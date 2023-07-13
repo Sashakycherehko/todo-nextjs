@@ -31,7 +31,6 @@ $buttons-hover-color: rgb(85, 134, 207);
   }
 }
 
-@import "./variables";
 * {
   padding: 0;
   margin: 0;
@@ -50,7 +49,6 @@ body {
   );
 }
 
-@import "../../app/variables";
 .navigation {
   height: 100vh;
   width: 280px;
