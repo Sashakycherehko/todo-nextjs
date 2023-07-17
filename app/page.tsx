@@ -1,7 +1,15 @@
 import Link from "next/link";
 import "../app/globals.scss";
 import RootLayout from "./layout";
+import Navigation from "./components/navigation/navigation";
 
-export default function Home() {
-  return <RootLayout></RootLayout>;
-}
+export const Home = () => {
+  return (
+    <RootLayout>
+      <Navigation />
+      <h1>Home</h1>
+    </RootLayout>
+  );
+};
+
+export default Home;

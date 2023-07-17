@@ -1,3 +1,8 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 $padding-container: min(1rem, 16px);
 $default-font-size: 1rem;
 $padding-buttons: 8px 18px;
@@ -29,12 +34,6 @@ $buttons-hover-color: rgb(85, 134, 207);
   &:hover {
     background-color: $main-font-color;
   }
-}
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
 }
 
 .html,
@@ -98,4 +97,11 @@ body {
     justify-content: space-between;
     flex-direction: column;
   }
+}
+
+.centerContainer {
+  height: 100vh;
+  padding: $padding-container;
+  display: grid;
+  grid-template-rows: 120px auto 120px;
 }

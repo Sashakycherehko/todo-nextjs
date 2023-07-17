@@ -1,10 +1,16 @@
-import { Metadata } from "next";
-import { list_links } from "../navigation/navigation";
-const metadata: Metadata = {
-    title: 
-}
-export const CenterContainer = (): React.ReactNode => {
+import styles from "./centerContainer.module.scss";
+export const CenterContainer = ({
+  children,
+  backgroundColor,
+}: {
+  children: React.ReactElement;
+  backgroundColor: string;
+}): React.ReactNode => {
   return (
-   null;
+    <>
+      <div className="centerContainer" style={{ backgroundColor }}>
+        {children}
+      </div>
+    </>
   );
-};  
+};
