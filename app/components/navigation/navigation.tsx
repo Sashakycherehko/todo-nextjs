@@ -11,9 +11,15 @@ const list_links: Array<ParamLinks> = [
   { title_links: "Planned", name_path: "planned" },
   { title_links: "All", name_path: "all" },
   { title_links: "Completed", name_path: "completed" },
-  { title_links: "Assigned to me", name_path: "AssignedToMe" },
+  { title_links: "Assigned to me", name_path: "assignedToMe" },
   { title_links: "Tasks", name_path: "tasks" },
 ];
+
+const viewlinks = list_links.map((item) => (
+  <li key={item.title_links}>
+    <Link href={`/${item.name_path}`}>{item.title_links}</Link>
+  </li>
+));
 
 export const Navigation = () => {
   return (
@@ -29,13 +35,7 @@ export const Navigation = () => {
         <input type="search" />
       </div>
       <div className="navigation-groups">
-        <ul>
-          {list_links.map((item) => (
-            <li key={item.title_links}>
-              <Link href={`/${item.name_path}`}>{item.name_path}</Link>
-            </li>
-          ))}
-        </ul>
+        <ul>{viewlinks}</ul>
       </div>
       <div className="navigation-lists">
         <div className="lists-list">
