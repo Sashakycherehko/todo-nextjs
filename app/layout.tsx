@@ -1,5 +1,6 @@
 import "./globals.scss";
 import { Navigation } from "./components/navigation/navigation";
+import MainContainer from "./components/mainContainer/layout";
 
 export const metadata = {
   title: "home",
@@ -13,7 +14,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <MainContainer>
+          <Navigation />
+          {children}
+        </MainContainer>
+      </body>
     </html>
   );
 }

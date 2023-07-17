@@ -5,7 +5,7 @@ interface ParamLinks {
   title_links: string;
   name_path: string;
 }
-const list_links: Array<ParamLinks> = [
+export const list_links: Array<ParamLinks> = [
   { title_links: "My Day", name_path: "day" },
   { title_links: "Importand", name_path: "importand" },
   { title_links: "Planned", name_path: "planned" },

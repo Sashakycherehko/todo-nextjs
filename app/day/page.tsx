@@ -1,15 +1,12 @@
-import RootLayout from "./layout";
+import RootLayout from "../layout";
 import MainContainer from "../components/mainContainer/layout";
-import Home from "../page";
+import Navigation from "../components/navigation/navigation";
 
 export const Day = () => {
   return (
     <>
       <RootLayout>
-        <MainContainer>
-          <Home />
-          <div>day</div>
-        </MainContainer>
+        <div>day</div>
       </RootLayout>
     </>
   );
