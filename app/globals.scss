@@ -104,4 +104,5 @@ body {
   padding: $padding-container;
   display: grid;
   grid-template-rows: 120px auto 120px;
+  grid-template-columns: auto auto;
 }

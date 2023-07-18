@@ -3,8 +3,8 @@ export const CenterContainer = ({
   children,
   backgroundColor,
 }: {
-  children: React.ReactElement;
-  backgroundColor: string;
+  children: React.ReactNode;
+  backgroundColor?: string;
 }): React.ReactNode => {
   return (
     <>
