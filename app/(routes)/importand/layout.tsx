@@ -8,12 +8,7 @@ export const ImportandLayout = ({
 }: {
   children: React.ReactNode;
 }) => {
-  return (
-    <>
-      <head></head>
-      <body>{children}</body>
-    </>
-  );
+  return <>{children}</>;
 };
 
 export default ImportandLayout;

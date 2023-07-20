@@ -5,11 +5,9 @@ import RootLayout from "../../layout";
 export const Home = (): React.ReactNode => {
   return (
     <>
-      <RootLayout>
-        <CenterContainer backgroundColor="red">
-          <h1>importand</h1>
-        </CenterContainer>
-      </RootLayout>
+      <CenterContainer>
+        <h1>importand</h1>
+      </CenterContainer>
     </>
   );
 };

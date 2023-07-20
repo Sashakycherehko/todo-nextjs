@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import avatar from "../../../public/images/avatar.jpg";
+import React from "react";
 
 interface ParamLinks {
   title_links: string;
@@ -15,12 +17,22 @@ export const list_links: Array<ParamLinks> = [
   { title_links: "Tasks", name_path: "tasks" },
 ];
 
-const viewlinks = list_links.map((item) => (
-  <li key={item.title_links}>
-    <Link href={`/${item.name_path}`}>{item.title_links}</Link>
-  </li>
-));
-
+// const LinksRoute = (): void[] => {
+//   const routes = useRouter();
+//   return list_links.map((item) => {
+//     <>
+//       <li>
+//         <a
+//           onClick={() => {
+//             routes.push(`/${item.name_path}`);
+//           }}
+//         >
+//           {item.title_links}
+//         </a>
+//       </li>
+//     </>;
+//   });
+// };
 export const Navigation = () => {
   return (
     <nav className="navigation">
@@ -35,7 +47,9 @@ export const Navigation = () => {
         <input type="search" />
       </div>
       <div className="navigation-groups">
-        <ul>{viewlinks}</ul>
+        <ul>
+          <li></li>
+        </ul>
       </div>
       <div className="navigation-lists">
         <div className="lists-list">
@@ -44,7 +58,7 @@ export const Navigation = () => {
           </ul>
         </div>
         <div className="lists-addNewList">
-          <button className="button">new list</button>
+          <button className="button">New List</button>
         </div>
       </div>
     </nav>
