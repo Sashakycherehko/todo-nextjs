@@ -1,12 +1,13 @@
 "use client";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { list_links } from "../navigation/pathPage";
 interface IProps {
   children: React.ReactNode;
   href: string;
 }
 
-export const ActiveLink = ({ children, href }: IProps): React.ReactNode => {
+const ActiveLink = ({ children, href }: IProps): React.ReactNode => {
   const route = useRouter();
   const handleClick = (e: React.MouseEvent) => {
     alert(href);
@@ -21,4 +22,13 @@ export const ActiveLink = ({ children, href }: IProps): React.ReactNode => {
   );
 };
 
-export default ActiveLink;
+export const CustomLinks = (): React.ReactNode => {
+  let links = list_links.map((item) => (
+    <>
+      <ActiveLink href={item.name_path}>{item.title_links}</ActiveLink>
+    </>
+  ));
+  return <>{links}</>;
+};
+
+export default CustomLinks;

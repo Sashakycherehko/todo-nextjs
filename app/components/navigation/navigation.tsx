@@ -2,20 +2,10 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import avatar from "../../../public/images/avatar.jpg";
-import React, { ReactNode } from "react";
-import ActiveLink from "../activeLink/activeLink";
+import ActiveLink, { CustomLinks } from "../activeLink/activeLink";
 import { list_links } from "./pathPage";
 
-function PathLinks() {
-  let links = list_links.map((item) => {
-    <>
-      <a href={item.name_path}>{item.title_links}</a>;
-    </>;
-  });
-  console.log(links);
-}
 export const Navigation = () => {
-  PathLinks();
   return (
     <nav className="navigation">
       <div className="navigation-profile">
@@ -29,7 +19,9 @@ export const Navigation = () => {
         <input type="search" />
       </div>
       <div className="navigation-groups">
-        <ul></ul>
+        <ul>
+          <CustomLinks />
+        </ul>
       </div>
       <div className="navigation-lists">
         <div className="lists-list">

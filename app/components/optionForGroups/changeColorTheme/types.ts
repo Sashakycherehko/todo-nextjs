@@ -1,5 +1,5 @@
 export type IColor = {
-  color: string;
+  Backgroundcolor: string;
   font_color: string;
 };
 
