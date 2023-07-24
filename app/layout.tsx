@@ -1,6 +1,3 @@
-import { CenterContainer } from "./components/centerContainer/centerContainer";
-import MainContainer from "./components/mainContainer/layout";
-import Navigation from "./components/navigation/navigation";
 import "./globals.scss";
 export const metadata = {
   title: "Home Page",
@@ -14,13 +11,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head></head>
-      <body>
-        <MainContainer>
-          <Navigation />
-          {children}
-        </MainContainer>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
