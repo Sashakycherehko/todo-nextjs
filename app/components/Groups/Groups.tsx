@@ -1,10 +1,7 @@
-export const Groups = () => {
+export const Groups = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <li>4</li>
-      <li>2</li>
-      <li>1</li>
-      <li>3</li>
+      <section>{children}</section>
     </>
   );
 };
