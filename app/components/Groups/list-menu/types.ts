@@ -5,4 +5,5 @@ export interface IOnclick {
 export interface IList {
   id: number;
   title: string;
+  path: string;
 }

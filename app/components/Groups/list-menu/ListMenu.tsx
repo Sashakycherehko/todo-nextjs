@@ -1,22 +1,19 @@
-import { IList } from "./types";
-export const ListMenu = ({
-  onclick,
-}: {
-  onclick: React.MouseEventHandler<HTMLLIElement>;
-}) => {
+import Link from "next/link";
+import { IList } from "../../groups/list-menu/types";
+export const ListMenu = () => {
   const lists: Array<IList> = [
-    { id: 0, title: "Today" },
-    { id: 1, title: "Inbox" },
-    { id: 2, title: "UpComing" },
-    { id: 3, title: "Filter" },
+    { id: 0, title: "today", path: "/groups/today" },
+    { id: 1, title: "inbox", path: "/groups/inbox" },
+    { id: 2, title: "upComing", path: "/groups/upComing" },
+    { id: 3, title: "filter", path: "/groups/filter" },
   ];
   return (
     <>
       {lists.map((item) => (
         <>
-          <li key={item.id} onClick={onclick}>
-            {item.title}
-          </li>
+          <Link key={item.id} href={{ pathname: item.path }}>
+            {item.title.toUpperCase()}
+          </Link>
         </>
       ))}
     </>
