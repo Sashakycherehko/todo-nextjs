@@ -47,3 +47,21 @@ body {
     $main-font-color
   );
 }
+
+.content-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: max-content auto;
+  grid-template-rows: 84px auto;
+
+  .navigation {
+    grid-column: span 2;
+  }
+
+  .groups {
+    width: 280px;
+    height: 100vh;
+    grid-column: 1;
+    grid-row: 2;
+  }
+}

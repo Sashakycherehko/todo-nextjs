@@ -1,7 +1,7 @@
 export const MainView = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <section>{children}</section>
+      <section className="main-view">{children}</section>
     </>
   );
 };

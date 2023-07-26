@@ -7,7 +7,7 @@ export const Navigation = ({
 }): React.ReactNode => {
   return (
     <>
-      <nav>{children}</nav>
+      <nav className="navigation">{children}</nav>
     </>
   );
 };
