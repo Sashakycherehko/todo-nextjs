@@ -2,24 +2,30 @@
 import { useState } from "react";
 import "../app/globals.scss";
 import { ContentWrapper } from "./components/content-wrapper/ContentWrapper";
-import { Groups } from "./components/groups/Groups";
 import { Navigation } from "./components/navigation/Navigation";
 import { ButtonHome } from "./components/navigation/ButtonHome";
 import { ButtonMenu } from "./components/navigation/ButtonMenu";
 import { ButtonProfile } from "./components/navigation/profile/ButtonProfile";
-import { ListMenu } from "./components/groups/list-menu/ListMenu";
-import { ListProjects } from "./components/groups/list-projects/ListProjects";
+import { ListProjects } from "./components/Groups/list-projects/ListProjects";
+import { Groups } from "./components/Groups/Groups";
+import { ListMenu } from "./components/Groups/list-menu/ListMenu";
+import { MainView } from "./components/mainView/MainView";
 export const Home = () => {
   const [isShownGrouprs, setIsShownGroups] = useState(true);
-  const [isShownGrouprsView, setIsShownGroupsView] = useState(false);
+  const [isShownGrouprsView, setIsShownGroupsView] = useState("Today");
   const [isShownGrouprsProjects, setIsShownGroupsProjects] = useState(false);
 
   const handleClickShownMenu = (e: React.MouseEvent) =>
     setIsShownGroups(!isShownGrouprs);
-  const handleClickShownView = (e: React.MouseEvent) =>
-    setIsShownGroups(!isShownGrouprsView);
-  const handleClickShownProjects = (e: React.MouseEvent) =>
+  const handleClickShownView = (e: React.ChangeEvent) => {
+    let value = e.target.innerHTML;
+
+    setIsShownGroupsView(value);
+  };
+
+  const handleClickShownProjects = (e: React.MouseEvent) => {
     setIsShownGroups(!isShownGrouprsProjects);
+  };
   return (
     <>
       <ContentWrapper>
@@ -34,6 +40,14 @@ export const Home = () => {
             <ListProjects />
           </Groups>
         )}
+        <MainView>{switch (isShownGrouprsView) {
+          case value:
+            
+            break;
+        
+          default:
+            break;
+        }}</MainView>
       </ContentWrapper>
     </>
   );
