@@ -1,5 +1,7 @@
+"use client";
 import Link from "next/link";
 import { IList } from "../../groups/list-menu/types";
+
 export const ListMenu = () => {
   const lists: Array<IList> = [
     { id: 0, title: "today", path: "/groups/today" },
@@ -11,7 +13,7 @@ export const ListMenu = () => {
     <>
       {lists.map((item) => (
         <>
-          <Link key={item.id} href={{ pathname: item.path }}>
+          <Link key={item.title} href={{ pathname: item.path }}>
             {item.title.toUpperCase()}
           </Link>
         </>

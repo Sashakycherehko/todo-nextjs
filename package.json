@@ -15,10 +15,14 @@
     "@types/react-dom": "18.2.7",
     "@types/react-redux": "^7.1.25",
     "next": "13.4.10",
+    "pg": "^8.11.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sass": "^1.63.6",
     "typescript": "5.1.6",
     "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.10.2"
   }
 }
