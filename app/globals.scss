@@ -79,3 +79,36 @@ body {
   position: relative;
   z-index: 1;
 }
+
+.data-generates {
+  width: max-content;
+  height: 400px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 54px 54px auto;
+
+  .data-nameOfWeek {
+    display: grid;
+    grid-row: 2;
+    grid-column: span 7;
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  .data-days {
+    display: grid;
+    grid-column: span 7;
+    grid-row: 3;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: auto;
+    overflow-y: scroll;
+    li {
+      width: 44px;
+      height: 44px;
+    }
+  }
+
+  .data-buttons {
+    grid-column: span 7;
+    grid-row: 1;
+  }
+}
