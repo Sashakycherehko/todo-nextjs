@@ -1,4 +1,7 @@
 "use client";
+
+import { debug } from "util";
+
 type FullYear = {
   month: [
     {
@@ -89,15 +92,21 @@ class DataPicker {
     console.log(`${current_year}`, currentFullDayInYear);
 
     for (let i: number = current_date; i < currentFullDayInYear; i++) {
+      debugger;
       event.setDate(i);
       let first_value = event.getDate();
       let first_weekday = event.toLocaleDateString("en", { weekday: "long" });
+      console.log(`${first_value}\t:\t${first_weekday}`);
       event.setMonth(current_month + 1);
+      console.log(event.getMonth());
       event.setDate(0);
       let second_value = event.getDate();
+      console.log(second_value);
 
       for (let k: number = first_value; k < second_value; k++) {
-        console.log(k);
+        if (k >= second_value) {
+          i = 0;
+        }
       }
       // let date = event.getDate();
       // let second_weekday = event.toLocaleDateString("en", { weekday: "long" });
