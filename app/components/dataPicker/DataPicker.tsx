@@ -1,82 +1,47 @@
 "use client";
-let date = new Date();
-let currentDay = date.getDay();
-let currentDate = date.getDate();
-let currentYear = date.getFullYear();
-let currentMonth = date.getMonth();
-const dayNames: string[] = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
+import { useState } from "react";
+import { DateHandler } from "./DateHandler";
 
-const monthNames: string[] = [
-  "Jauary",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-
-function generateDaysInMonth(month: number, year: number) {
-  let dayInMonth = daysInMonth(month, year);
-  let arr: number[] = [];
-  for (let i = 1; i <= dayInMonth; i++) {
-    arr.push(i);
-  }
-
-  return arr;
+interface StateDate {
+  currentYear: number;
+  currentMonth: number;
+  currentDate: number;
+  viewCurrentMonth: string;
 }
-
-function daysInMonth(month: number, year: number): number {
-  return new Date(year, month, 0).getDate();
-}
-
 export const DatePicker = (): React.ReactNode => {
-  let arr: number[] = generateDaysInMonth(currentMonth, currentYear);
-  let objdate = new Date();
-  let today = new Date(
-    currentYear,
-    currentMonth,
-    currentDate
-  ).toLocaleDateString("default", { weekday: "short" });
-  let tomorrow = new Date(
-    currentYear,
-    currentMonth,
-    currentDate + 1
-  ).toLocaleDateString("default", { weekday: "short" });
-  // let thisWeekend = new Date(
-  //   currentYear,
-  //   currentMonth,
-  //   currentDate + 7
-  // ).toLocaleDateString("default", { weekday: "short", day: "numeric" });
-  let nextWeek = new Date(
-    currentYear,
-    currentMonth,
-    currentDate + 7
-  ).toLocaleDateString("default", { weekday: "short", day: "numeric" });
+  let dateHandler = new DateHandler();
+  let date = new Date();
+  let currentDate = date.getDate();
+  let currentYear = date.getFullYear();
+  let currentMonth = date.getMonth();
+  let viewCurrentMonth = date.toLocaleDateString("en-EN", { month: "long" });
+
+  const [viewDate, setdate] = useState<Date>(new Date());
+  const [currentCount, setCurrentCount] = useState(currentMonth);
 
   return (
     <>
       <div className="data-picker">
-        <div className="data-today">{today}</div>
-        <div className="data-tomorrow">{tomorrow}</div>
-        <div className="data-nextWeek">{nextWeek}</div>
+        <div className="data-today">
+          <span>{dateHandler.propetyiesToday}</span>
+        </div>
+        <div className="data-tomorrow">
+          <span>{dateHandler.propertiesTomorrow}</span>
+        </div>
+        <div className="data-nextWeek">
+          <span>{dateHandler.propertiesNextWeek.nextWeek}</span>{" "}
+          <span>{dateHandler.propertiesNextWeek.currentNextDate}</span>
+        </div>
         <div className="data-generates">
           <div className="data-title">
-            <div className="data-month"></div>
-            <div className="data-day"></div>
+            <div className="data-month">
+              <h1>{viewDate.toLocaleDateString("en-EN", { month: "long" })}</h1>
+            </div>
+            <div className="data-year">
+              <h1>
+                {viewDate.toLocaleDateString("en-EN", { year: "numeric" })}
+              </h1>
+            </div>
 
             <div className="data-buttons">
               <div className="button-back">
@@ -84,7 +49,16 @@ export const DatePicker = (): React.ReactNode => {
               </div>
               <button className="button-restore">restore</button>
               <div className="button-next">
-                <button>Next</button>
+                <button
+                  onClick={() => {
+                    let newDate = new Date(currentYear, currentCount);
+                    setCurrentCount(currentCount + 1);
+                    newDate.setMonth(currentCount);
+                    setdate(newDate);
+                  }}
+                >
+                  Next
+                </button>
               </div>
             </div>
           </div>
