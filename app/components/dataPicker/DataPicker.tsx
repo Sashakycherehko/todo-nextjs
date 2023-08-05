@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { DateHandler } from "./DateHandler";
+import DateRender, { returnDateValue } from "./DataRender";
 
 interface StateDate {
   currentYear: number;
@@ -9,15 +10,16 @@ interface StateDate {
   viewCurrentMonth: string;
 }
 export const DatePicker = (): React.ReactNode => {
-  let dateHandler = new DateHandler();
   let date = new Date();
   let currentDate = date.getDate();
   let currentYear = date.getFullYear();
   let currentMonth = date.getMonth();
-  let viewCurrentMonth = date.toLocaleDateString("en-EN", { month: "long" });
-
-  const [viewDate, setdate] = useState<Date>(new Date());
-  const [currentCount, setCurrentCount] = useState(currentMonth);
+  let dateHandler = new DateHandler();
+  let dateRender = new DateRender(currentYear, currentMonth, currentDate);
+  const [ValueMonthAndyear, setValueMonthAndYear] = useState<returnDateValue>({
+    year: dateRender.year,
+    month: dateRender.month,
+  });
 
   return (
     <>
@@ -34,31 +36,35 @@ export const DatePicker = (): React.ReactNode => {
         </div>
         <div className="data-generates">
           <div className="data-title">
-            <div className="data-month">
-              <h1>{viewDate.toLocaleDateString("en-EN", { month: "long" })}</h1>
-            </div>
-            <div className="data-year">
-              <h1>
-                {viewDate.toLocaleDateString("en-EN", { year: "numeric" })}
-              </h1>
-            </div>
-
             <div className="data-buttons">
               <div className="button-back">
-                <button>Back</button>
+                <button
+                  onClick={() => {
+                    dateRender.clickHandlerDecrementMonth();
+                  }}
+                >
+                  Back
+                </button>
               </div>
               <button className="button-restore">restore</button>
               <div className="button-next">
                 <button
                   onClick={() => {
-                    let newDate = new Date(currentYear, currentCount);
-                    setCurrentCount(currentCount + 1);
-                    newDate.setMonth(currentCount);
-                    setdate(newDate);
+                    setValueMonthAndYear({
+                      year: (ValueMonthAndyear.year += 1),
+                      month: (ValueMonthAndyear.month += 1),
+                    });
+                    console.log(dateRender.month);
                   }}
                 >
                   Next
                 </button>
+              </div>
+              <div className="data-month">
+                <h1>{ValueMonthAndyear.month}</h1>
+              </div>
+              <div className="data-year">
+                <h1>{ValueMonthAndyear.year}</h1>
               </div>
             </div>
           </div>
