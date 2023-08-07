@@ -1,61 +1,40 @@
-import { Interface } from "readline";
+import DataNameOfWeek from "./DataNameOfWeek";
 
-interface WeekDay {
-  weekDay: string;
-  numberInCalendar: number[];
-}
-
-interface returnDateValue {
-  year: number;
-  month: number;
-}
 export class DateRender {
-  date: Date;
-  year: number;
-  month: number;
-  day: number;
+  constructor() {}
 
-  constructor(year: number, month: number, day: number) {
-    (this.year = year), (this.month = month), (this.day = day);
-    this.date = new Date(year, month, day);
-  }
+  public generateRowsAndColomuns(): any[][] {
+    let arr = [];
 
-  get propertiesMonthInDataRender() {
-    return this.date.toLocaleDateString("en-EN", { month: "long" });
-  }
-
-  get propertiesYearInDataRender() {
-    return this.date.toLocaleDateString("en-EN", { year: "numeric" });
-  }
-  public createColumnCalendar() {
-    let list_weekDay: Array<WeekDay> = [];
-  }
-
-  public daysInMonth(month: number, year: number) {
-    return new Date(year, month, 0).getDate();
-  }
-
-  public clickHandlerDecrementMonth() {
-    if (this.month == 0) {
-      return (this.year -= 1), (this.month = 11);
+    for (let i = 0; i < 7; i++) {
+      arr.push([]);
     }
-    return this.year, (this.month -= 1);
+
+    return arr;
   }
 
-  public clickHandlerIncrementMonth(): returnDateValue {
-    if (this.month == 11) {
-      return {
-        year: (this.year += 1),
-        month: (this.month = 0),
-      };
+  public GetFullDaysInMonth() {}
+
+  public GenerateDaysInCalendar(date: Date) {
+    let currentMonth = date.getMonth();
+    let currentYear = date.getFullYear();
+    let cuurentDate = date.getDate();
+    let countDaysInMonth = new Date(currentYear, currentMonth, 0).getDate();
+    let dataNameOfWeek = new DataNameOfWeek().generateNameOfWeek();
+    let arr_cell = this.generateRowsAndColomuns();
+    for (let i = 0; i < arr_cell.length; i++) {
+      arr_cell.push(dataNameOfWeek);
     }
-    return {
-      year: this.year,
-      month: (this.month += 1),
-    };
-  }
 
-  public createRowAndColumnCalendar<WeekDay>() {}
+    // for (let i: number = 1; i < arr_cell.length; i++) {
+    //   for (let k: number = 1; k < countDaysInMonth; k++) {
+    //     if (k % 7 == 0) {
+    //       i++;
+    //     }
+    //   }
+    // }
+    console.log(arr_cell);
+  }
 }
 
 export default DateRender;

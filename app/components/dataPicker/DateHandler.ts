@@ -7,7 +7,7 @@ export class DateHandler {
 
   get propetyiesToday(): string {
     let date = new Date();
-    let today = date.toLocaleDateString("en-EN", { weekday: "short" });
+    let today = date.toLocaleDateString("default", { weekday: "short" });
     return today;
   }
 
@@ -15,7 +15,7 @@ export class DateHandler {
     let date = new Date();
     let curentDate = date.getDate();
     date.setDate(curentDate + 1);
-    let tomorrow = date.toLocaleDateString("en-EN", { weekday: "short" });
+    let tomorrow = date.toLocaleDateString("default", { weekday: "short" });
     return tomorrow;
   }
 
@@ -23,7 +23,7 @@ export class DateHandler {
     let date = new Date();
     let currentDate = date.getDate();
     date.setDate(currentDate + 7);
-    let nextWeek = date.toLocaleDateString("en-EN", { weekday: "short" });
+    let nextWeek = date.toLocaleDateString("default", { weekday: "short" });
     let currentNextDate = date.getDate();
     return {
       nextWeek,
