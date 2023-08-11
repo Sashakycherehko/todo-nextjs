@@ -1,5 +1,4 @@
 "use client";
-import { Database } from "./lib/database";
 
 import "../app/globals.scss";
 

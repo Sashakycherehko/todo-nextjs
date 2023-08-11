@@ -1,151 +1,96 @@
+$default-padding: 1em;
+$default-height-navigation: 44px;
+$default-width-leftSideBar: 17.5rem;
+$default-color-navigation: rgb(53, 48, 106);
+$default-outline-color-search: rgba(161, 122, 220, 0.203);
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-$padding-container: min(1rem, 16px);
-$default-font-size: 1rem;
-$padding-buttons: 8px 18px;
-$main-font-color: black;
-$buttons-color: transparent;
-$buttons-hover-color: rgb(85, 134, 207);
-
-@mixin buttons() {
-  width: max-content;
-  height: max-content;
-  display: block;
-  background-color: $buttons-color;
-  border: 2px solid $main-font-color;
-  font-weight: bold;
-  padding: $padding-buttons;
-  color: $main-font-color;
-  cursor: pointer;
-  transition: background-color 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-@mixin hoverButtonBackgroundColor($color-button, $hover-color, $font-color) {
-  @include buttons;
-  @if $font-color == black {
-    &:hover {
-      color: #fff;
-    }
-  }
-
-  &:hover {
-    background-color: $main-font-color;
-  }
-}
-
-.html,
+html,
 body {
-  font-size: $default-font-size;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 1em;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: #fff;
 }
-.button {
-  @include hoverButtonBackgroundColor(
-    $buttons-color,
-    $buttons-hover-color,
-    $main-font-color
-  );
-}
-
-.content-wrapper {
-  width: 100%;
+.navigation {
+  height: $default-height-navigation;
+  background-color: $default-color-navigation;
   display: grid;
-  grid-template-columns: max-content auto;
-  grid-template-rows: 84px auto;
+  align-items: center;
+  padding: 0 $default-padding;
+  grid-template-columns: max-content auto $default-width-leftSideBar;
+  grid-column-gap: $default-padding;
 
-  .navigation {
-    grid-column: span 2;
-  }
-
-  .groups {
-    width: 280px;
-    height: 100vh;
+  &-leftside {
+    align-items: center;
+    display: flex;
     grid-column: 1;
-    grid-row: 2;
-  }
-}
 
-.popper__overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: transparent;
-  z-index: 0;
-}
-.choice-date {
-  position: relative;
-  z-index: 1;
-}
-
-.data-picker {
-  width: 244px;
-  height: 380px;
-  border: 1px solid rgba(160, 158, 158, 0.329);
-  border-radius: 24px;
-  display: grid;
-  grid-template-rows: 54px minmax(100px, 150px) auto auto;
-
-  .data-input {
-    grid-row: 1;
-    padding: 4px 16px 0 16px;
-    input {
-      width: 100%;
-      height: 100%;
-      border: none;
+    button {
+      margin-right: calc($default-padding / 2);
+      background-color: transparent;
       outline: none;
-    }
-  }
-
-  .data-WeekDays {
-    grid-row: 2;
-    display: grid;
-    grid-template-rows: repeat(3, auto);
-    border-top: 1px solid rgba(160, 158, 158, 0.329);
-    border-bottom: 1px solid rgba(160, 158, 158, 0.329);
-    padding: 0 16px 0 16px;
-    h3 {
-      font-size: $default-font-size;
-    }
-
-    .data-today {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .data-tomorrow {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .data-nextWeek {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-  }
-
-  .data-generates {
-    grid-row: 3;
-    display: grid;
-    grid-template-rows: 24px auto;
-    padding: 0 16px 0 16px;
-
-    .data-title {
-      grid-row: 1;
-      height: max-content;
-      display: flex;
-      justify-content: space-between;
-      .data-buttons {
-        display: flex;
+      border: none;
+      height: 24px;
+      width: 24px;
+      svg {
+        color: #fff;
       }
     }
-    .data-calendar {
-      grid-row: 2;
+
+    .leftside_input-search {
+      position: relative;
+      width: $default-width-leftSideBar;
+      display: flex;
+      background-color: $default-outline-color-search;
+      transition: all 0.1s ease-in-out;
+
+      cursor: text;
+      svg {
+        color: #ffffff6c;
+        margin-right: calc($default-padding / 2);
+      }
+      input {
+        width: 100%;
+        background-color: transparent;
+        outline: none;
+        border: none;
+
+        &::placeholder {
+          color: #ffffff6c;
+        }
+      }
+
+      &:hover {
+        background-color: #fff;
+        color: #000;
+
+        svg {
+          color: #000;
+        }
+
+        input {
+          color: #000;
+
+          &::placeholder {
+            color: #000;
+          }
+        }
+      }
+    }
+
+    .leftside_input-list {
+      position: absolute;
+      top: 54px;
+      left: 77px;
+      width: $default-width-leftSideBar;
+      height: $default-width-leftSideBar / 2;
+      background-color: #fff;
+      border: 1px solid $default-outline-color-search;
+      box-shadow: 0px 10px 10px 1px $default-outline-color-search;
     }
   }
 }
