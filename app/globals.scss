@@ -32,80 +32,11 @@ body {
     height: $default-width-leftSideBar;
     width: $default-width-leftSideBar * 2;
     max-width: calc(100dvw * 13 / 2);
-    box-shadow: -2px 0px 2rem 1rem #0000001e;
+    box-shadow: 0 15px 50px 0 rgba(0, 0, 0, 0.35);
     border-radius: 24px;
     color: $default-color-addTasks;
     display: grid;
     grid-template-rows: minmax(5.5rem, 6rem) 1fr 1fr;
-
-    span {
-      color: $default-color-addTasks;
-    }
-
-    &-inputs {
-      padding-top: $default-padding;
-      padding-left: $default-padding * 1.2;
-      padding-right: $default-padding * 1.2;
-      display: grid;
-
-      input {
-        outline: none;
-        border: none;
-        background-color: transparent;
-
-        &::placeholder {
-          color: $default-color-addTasks;
-        }
-      }
-    }
-
-    &-options {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      align-items: center;
-      justify-content: right;
-      padding: 0 $default-padding;
-      grid-column-gap: $default-padding;
-      div {
-        padding: 4px 8px;
-        height: 2rem;
-        display: flex;
-        align-items: center;
-
-        background-color: transparent;
-        border: 1px solid $default-color-addTasks;
-        cursor: pointer;
-        border-radius: 4px;
-
-        button {
-          height: 16px;
-          outline: none;
-          border: none;
-          background-color: transparent;
-          cursor: pointer;
-        }
-
-        span {
-          margin: 0 $default-padding / 4;
-        }
-      }
-
-      .options-selection_date {
-        grid-column: 1;
-      }
-      .options-selection-priority {
-        grid-column: 2;
-      }
-
-      .options-selection-reminders {
-        grid-column: 3;
-      }
-
-      .options-labels {
-        width: max-content;
-        grid-column: 5;
-      }
-    }
   }
 }
 .navigation {
