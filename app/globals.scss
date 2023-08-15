@@ -1,9 +1,9 @@
 $default-padding: 1em;
 $default-height-navigation: 44px;
 $default-width-leftSideBar: 17.5rem;
-$default-color-navigation: rgb(53, 48, 106);
+$default-color-navigation: rgb(74, 68, 139);
 $default-outline-color-search: rgba(161, 122, 220, 0.203);
-$default-color-addTasks: #9a9898c8;
+$default-color-addTasks: #9a9898a7;
 * {
   padding: 0;
   margin: 0;
@@ -12,7 +12,7 @@ $default-color-addTasks: #9a9898c8;
 html,
 body {
   font-size: 1em;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   color: #fff;
   position: absolute;
 }
@@ -29,14 +29,195 @@ body {
   padding: $default-padding;
   .modal {
     margin-top: $default-width-leftSideBar / 2;
-    height: $default-width-leftSideBar;
+    height: $default-width-leftSideBar / 1.5;
     width: $default-width-leftSideBar * 2;
     max-width: calc(100dvw * 13 / 2);
     box-shadow: 0 15px 50px 0 rgba(0, 0, 0, 0.35);
     border-radius: 24px;
     color: $default-color-addTasks;
     display: grid;
-    grid-template-rows: minmax(5.5rem, 6rem) 1fr 1fr;
+    grid-template-rows: max-content 1fr;
+    border-top: 1px solid $default-outline-color-search;
+
+    &-task_editor {
+      padding: 8px $default-padding 0px $default-padding;
+      display: grid;
+      grid-template-rows: max-content 1fr;
+      height: $default-width-leftSideBar / 2;
+
+      .editor-inputs {
+        grid-row: 1;
+
+        input {
+          width: 100%;
+          height: calc($default-width-leftSideBar / 8);
+          border: none;
+          outline: none;
+          cursor: text;
+        }
+      }
+
+      .editor-selections {
+        grid-row: 2;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        .editor-selections_options {
+          display: flex;
+          align-items: center;
+          grid-column: 6;
+        }
+        .selection-actions {
+          display: grid;
+          align-items: center;
+          grid-template-columns: repeat(3, max-content);
+          grid-auto-flow: row;
+          grid-column-gap: $default-padding / 2;
+          .editor-selections_date {
+            position: relative;
+            .selections_date {
+              font-size: 0.875em;
+              color: #000;
+              position: absolute;
+              top: 44px;
+              width: $default-width-leftSideBar;
+              background-color: #fff;
+              border: 1px solid $default-outline-color-search;
+              border-radius: 16px;
+
+              display: none;
+              grid-template-rows: max-content repeat(2, 1fr) max-content;
+              min-height: 600px;
+              height: calc(100dvh - 24dvh * 2);
+
+              span[role="WeekDay"],
+              div[role="NextWeekDate"] {
+                color: $default-color-addTasks;
+              }
+              .date-curentDate {
+                padding: $default-padding / 2 $default-padding;
+                border-bottom: 1px solid $default-outline-color-search;
+
+                span[role="dateCurrentMonth"] {
+                  margin-right: $default-padding / 3;
+                }
+              }
+              .date-selectionWeekDays {
+                display: grid;
+                grid-template-rows: repeat(5, 1fr);
+                padding: 0 $default-padding;
+                border-bottom: 1px solid $default-outline-color-search;
+
+                div[role="select-date"] {
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  cursor: pointer;
+
+                  span {
+                    display: flex;
+                    align-items: center;
+                  }
+                }
+
+                div[role="NextWeekDate"] {
+                  display: flex;
+
+                  .month {
+                    margin: 0 $default-padding / 4;
+                  }
+                }
+
+                div[role="no-date"] {
+                  cursor: pointer;
+                  display: flex;
+                  align-items: center;
+                }
+              }
+
+              .date-add_time {
+                padding: $default-padding / 2 $default-padding;
+                button {
+                  color: rgb(118, 109, 225);
+                  background-color: none;
+                  outline: none;
+                  border: none;
+                  cursor: pointer;
+                  background-color: transparent;
+                  font-weight: bold;
+                }
+              }
+            }
+          }
+          .editor-selections_priority {
+            position: relative;
+            .selections_priority-modal {
+              font-size: 0.875em;
+              color: #000;
+              position: absolute;
+              top: 44px;
+              width: $default-width-leftSideBar / 1.5;
+              background-color: #fff;
+              border: 1px solid $default-outline-color-search;
+              border-radius: 16px;
+              height: 204px;
+              display: none;
+              grid-template-rows: repeat(4, 1fr);
+
+              .modal-box {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+
+                svg {
+                  margin-right: $default-padding / 4;
+                }
+              }
+            }
+          }
+        }
+
+        @media screen and (max-width: 592px) {
+          .selection-actions {
+            grid-template-columns: 1fr;
+            grid-row-gap: $default-padding/ 2;
+          }
+          .editor-selections_options {
+            display: flex;
+
+            justify-content: flex-start;
+            align-items: center;
+          }
+        }
+      }
+      div[role="button"] {
+        cursor: pointer;
+        padding: calc($default-padding / 6) calc($default-padding / 2);
+        width: max-content;
+        height: calc(18px + 5px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 1px solid $default-color-addTasks;
+        border-radius: 4px;
+
+        span {
+          margin: 0 calc($default-padding / 4);
+        }
+
+        &:focus-within {
+          color: #69e150;
+        }
+      }
+    }
+
+    &-task_selections {
+      border-top: 1px solid $default-outline-color-search;
+      display: flex;
+      justify-content: space-between;
+
+      &-projects {
+      }
+    }
   }
 }
 .navigation {
@@ -138,6 +319,12 @@ body {
       width: 24px;
       svg {
         color: #fff;
+      }
+    }
+
+    .rightside-help_profile {
+      img {
+        width: 24px;
       }
     }
   }
