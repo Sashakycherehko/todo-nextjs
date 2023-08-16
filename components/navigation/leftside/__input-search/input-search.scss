@@ -1,0 +1,63 @@
+$color-in-search: #fff;
+@import "../../../../app/variables.scss";
+.navigation-leftside__input-search {
+  position: relative;
+  width: $default-width-leftSideBar;
+  max-width: 100%;
+  display: flex;
+  background-color: $default-outline-color-search;
+  transition: all 0.1s ease-in-out;
+  color: $color-in-search;
+  cursor: text;
+  input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+
+    &::placeholder {
+      color: $color-in-search;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+  }
+
+  @media screen and (max-width: 420px) {
+    position: relative;
+    max-width: 24px;
+    min-width: 24px;
+    height: 24px;
+
+    background-color: $default-outline-color-search;
+    svg {
+      position: absolute;
+      width: 100%;
+    }
+    input {
+      width: 100%;
+      z-index: 1;
+      &::placeholder {
+        opacity: 0;
+      }
+    }
+
+    svg {
+    }
+  }
+
+  &:focus-within {
+    background-color: #fff;
+
+    svg {
+      color: #000;
+    }
+
+    input {
+      color: #000;
+
+      &::placeholder {
+        color: #000;
+      }
+    }
+  }
+}

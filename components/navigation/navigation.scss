@@ -1,0 +1,71 @@
+@import "../../app/variables.scss";
+@import "leftside/__button-home/button-home";
+@import "leftside/__button-menu/button-menu";
+@import "leftside/__input-search/input-search";
+.navigation {
+  height: $default-height-navigation;
+  width: 100dvw;
+  max-width: 100dvw;
+  background-color: $default-color-navigation;
+  display: grid;
+  align-items: center;
+  padding: 0 $default-padding;
+  grid-template-columns: 280px auto $default-width-leftSideBar;
+  grid-column-gap: $default-padding;
+
+  &-leftside {
+    align-items: center;
+    display: flex;
+    grid-column: 1;
+
+    &__button-menu,
+    &__button-home {
+      margin-right: calc($default-padding / 2);
+    }
+
+    &__input-list {
+      position: absolute;
+      top: 54px;
+      left: 77px;
+      width: $default-width-leftSideBar;
+      height: $default-width-leftSideBar / 2;
+      background-color: #fff;
+      border: 1px solid $default-outline-color-search;
+      box-shadow: 0px 10px 10px 1px $default-outline-color-search;
+    }
+  }
+
+  &-rightside {
+    grid-column: 3;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+
+    button {
+      margin-right: calc($default-padding);
+      background-color: transparent;
+      outline: none;
+      border: none;
+      height: 24px;
+      cursor: pointer;
+      width: 24px;
+      svg {
+        color: #fff;
+      }
+    }
+
+    .rightside-help_profile {
+      img {
+        width: 24px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: calc(100dvw - $default-width-leftSideBar) auto;
+  }
+
+  @media screen and (max-width: 420px) {
+    grid-template-columns: calc(100dvw - $default-width-leftSideBar) auto;
+  }
+}
