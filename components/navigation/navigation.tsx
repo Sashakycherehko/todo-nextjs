@@ -18,7 +18,7 @@ export const Navigation = ({ children }: { children: React.ReactNode }) => {
           <InputSearch />
         </div>
         <div className="navigation-rightside">
-          <button className="rightside-add-task">
+          <button className="button-navigation navigation-rightside__addTask">
             <svg width="24" height="24" viewBox="0 0 24 24">
               <g fill="none" fill-rule="evenodd" transform="translate(4 3)">
                 <mask id="jd4FBg" fill="#fff">
@@ -30,8 +30,8 @@ export const Navigation = ({ children }: { children: React.ReactNode }) => {
               </g>
             </svg>
           </button>
-          <div className="rightside-productivity">
-            <button className="button-productivity">
+          <div className="navigation-rightside-productivity">
+            <button className="button-navigation navigation-rightside-productivity__button">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -52,10 +52,10 @@ export const Navigation = ({ children }: { children: React.ReactNode }) => {
                 </g>
               </svg>
             </button>
-            <div className="modal-productivity"></div>
+            <div className="navigation-rightside-productivity__modal"></div>
           </div>
-          <div className="rightside-help_information">
-            <button className="button-help_information">
+          <div className="navigation-rightside-helpAndInformation">
+            <button className="button-navigation navigation-rightside-helpAndInformation__button">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -70,10 +70,10 @@ export const Navigation = ({ children }: { children: React.ReactNode }) => {
                 ></path>
               </svg>
             </button>
-            <div className="modal-help_information"></div>
+            <div className="navigation-rightside-helpAndInformation-modal"></div>
           </div>
-          <div className="rightside-help_notification">
-            <button className="button-help_notification">
+          <div className="navigation-rightside-notification">
+            <button className="button-navigation navigation-rightside-notification__button">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -87,11 +87,17 @@ export const Navigation = ({ children }: { children: React.ReactNode }) => {
                 ></path>
               </svg>
             </button>
-            <div className="modal-help_notification"></div>
+            <div className="navigation-rightside-rightside-notification-modal"></div>
           </div>
-          <div className="rightside-help_profile">
-            <img className="button-help_profile" src={logo_profile.src} />
-            <div className="modal-help_profile"></div>
+          <div className="navigation-rightside-profile">
+            <button className="button-navigation navigation-rightside-profile__button">
+              <img
+                className="navigation-rightside-profile__ImageProfile"
+                src={logo_profile.src}
+              />
+            </button>
+
+            <div className="navigation-rightside-profile-modal"></div>
           </div>
         </div>
       </nav>

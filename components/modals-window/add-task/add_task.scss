@@ -1,0 +1,26 @@
+.background-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100dvh;
+  display: flex;
+  background-color: transparent;
+  justify-content: center;
+  @media screen and (max-width: 592px) {
+    padding: $default-padding;
+  }
+}
+
+.modal-task {
+  position: relative;
+  background-color: #000;
+  height: 244px;
+  width: 544px;
+  top: calc(100dvh / 4.5);
+
+  @media screen and (max-width: 592px) {
+    width: 100dvw;
+  }
+}

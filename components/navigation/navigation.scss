@@ -2,6 +2,13 @@
 @import "leftside/__button-home/button-home";
 @import "leftside/__button-menu/button-menu";
 @import "leftside/__input-search/input-search";
+@import "../modals-window/add-task/add_task.scss";
+.button-navigation {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: #fff;
+}
 .navigation {
   height: $default-height-navigation;
   width: 100dvw;
@@ -10,7 +17,7 @@
   display: grid;
   align-items: center;
   padding: 0 $default-padding;
-  grid-template-columns: 280px auto $default-width-leftSideBar;
+  grid-template-columns: max-content auto $default-width-leftSideBar;
   grid-column-gap: $default-padding;
 
   &-leftside {
@@ -40,23 +47,36 @@
     display: flex;
     align-items: center;
     justify-content: right;
+    &__addTask {
+      margin-right: calc($default-padding / 2);
+    }
 
-    button {
-      margin-right: calc($default-padding);
-      background-color: transparent;
-      outline: none;
-      border: none;
-      height: 24px;
-      cursor: pointer;
-      width: 24px;
-      svg {
-        color: #fff;
+    &-profile {
+      &__ImageProfile {
+        width: 24px;
       }
     }
 
-    .rightside-help_profile {
-      img {
-        width: 24px;
+    &-productivity {
+      &__button {
+        margin-right: calc($default-padding / 2);
+      }
+    }
+
+    &-helpAndInformation {
+      &__button {
+        margin-right: calc($default-padding / 2);
+      }
+    }
+
+    &-notification {
+      &__button {
+        margin-right: calc($default-padding / 2);
+      }
+    }
+    &-profile {
+      &__button {
+        margin-right: 0;
       }
     }
   }
