@@ -68,7 +68,7 @@ $color-in-search: #fff;
     min-height: 144px;
     top: 44px;
     border: 1px solid $default-outline-color-search;
-    border-radius: 14px;
+    border-radius: $border-radius-ls;
     display: none;
   }
 }

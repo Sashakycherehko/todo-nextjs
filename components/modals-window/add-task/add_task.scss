@@ -1,3 +1,5 @@
+$color-text-modal: #666;
+$color-border-button-option: rgb(157, 157, 157);
 .background-modal {
   position: absolute;
   top: 0;
@@ -15,12 +17,95 @@
 
 .modal-task {
   position: relative;
-  background-color: #000;
-  height: 244px;
+  background-color: #fff;
+  border: 1px solid $default-outline-color-search;
+  height: max-content;
+  min-height: 204px;
   width: 544px;
-  top: calc(100dvh / 4.5);
+  top: calc(100dvh / 5.5);
+  box-shadow: 0 15px 50px 0 rgba(0, 0, 0, 0.35);
+  border-radius: $border-radius-ls;
+  color: $color-text-modal;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &-editor {
+    padding: $default-padding;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    &_name {
+      height: 24px;
+      font-size: 20px;
+    }
+    &_description {
+      font-size: 16px;
+      height: max(24px, max-content);
+      max-height: 204px;
+      overflow-x: hidden;
+      margin-bottom: $default-padding / 2;
+    }
+    &-option {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: calc($default-padding / 2);
+    }
+  }
+
+  &-action {
+    padding: calc($default-padding / 2);
+    border-top: 1px solid $color-border-button-option;
+    height: 54px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
+    &_buttons {
+      display: flex;
+      flex-direction: row;
+      gap: 4px;
+
+      .add-task {
+        color: #fff;
+        background-color: $default-color-navigation;
+      }
+    }
+    button {
+      background-color: transparent;
+      outline: none;
+      border: none;
+
+      .button-option {
+        border: none;
+      }
+    }
+  }
 
   @media screen and (max-width: 592px) {
     width: 100dvw;
   }
+}
+
+.button-option {
+  height: 28px;
+  width: max-content;
+  padding: 0 4px;
+  border: 1px solid $color-border-button-option;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button-action {
+  height: 34px;
+  cursor: pointer;
+  padding: 0 calc($default-padding / 2);
+  background-color: transparent;
+  border-radius: 4px;
 }

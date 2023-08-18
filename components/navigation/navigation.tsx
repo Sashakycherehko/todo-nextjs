@@ -1,7 +1,7 @@
 import logo_profile from "../../public/images/vaider.png";
 import { ButtonHome } from "./leftside/__button-home/button-home";
 import { ButtonMenu } from "./leftside/__button-menu/button-menu";
-import { InputSearch } from "./leftside/__input-search/input-search";
+import { InputSearch } from "./leftside/input-search";
 export const Navigation = ({ children }: { children: React.ReactNode }) => {
   return (
     <>

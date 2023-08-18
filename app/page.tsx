@@ -1,13 +1,10 @@
 "use client";
-
+import { redirect } from "next/navigation";
 import "../app/globals.scss";
 
-function Home(): React.ReactNode {
-  return (
-    <>
-      <h1>Home</h1>
-    </>
-  );
+export function Home(): React.ReactNode {
+  redirect("/app/today");
+  return <h1>Home</h1>;
 }
 
 export default Home;
