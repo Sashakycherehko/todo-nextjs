@@ -1,8 +1,5 @@
 @import "../../app/variables.scss";
-@import "leftside/__button-home/button-home";
-@import "leftside/__button-menu/button-menu";
-@import "leftside/__input-search/input-search";
-@import "../modals-window/add-task/add_task.scss";
+
 .button-navigation {
   background-color: transparent;
   outline: none;
@@ -17,7 +14,7 @@
   display: grid;
   align-items: center;
   padding: 0 $default-padding;
-  grid-template-columns: max-content auto $default-width-leftSideBar;
+  grid-template-columns: $default-width-leftSideBar auto $default-width-leftSideBar;
   grid-column-gap: $default-padding;
 
   &-leftside {

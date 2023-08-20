@@ -1,0 +1,7 @@
+@import "../../app/variables.scss";
+.left-menu {
+  width: $default-width-leftSideBar;
+  background-color: #fff;
+  height: calc(100dvh - 44px);
+  margin-left: $default-padding;
+}
