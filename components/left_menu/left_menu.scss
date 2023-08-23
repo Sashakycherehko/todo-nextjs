@@ -1,7 +1,71 @@
 @import "../../app/variables.scss";
+@import "../../app/mixins.scss";
+$default-color: #212121;
 .left-menu {
-  width: $default-width-leftSideBar;
+  width: calc($default-width-leftSideBar + $default-padding);
   background-color: #fff;
   height: calc(100dvh - 44px);
-  margin-left: $default-padding;
+  padding: calc($default-padding) 0 $default-padding $default-padding;
+  color: $default-color;
+  display: flex;
+  flex-direction: column;
+
+  &_projects {
+    margin-top: 144px;
+    &_action {
+      display: flex;
+      gap: 4px;
+
+      button {
+        @include DefaultStyleButton;
+      }
+    }
+
+    &_list {
+      margin-top: $default-padding;
+    }
+
+    &_list_box {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      cursor: po;
+    }
+    &_header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  &_links {
+    height: 34px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    span {
+      color: $default-color;
+    }
+
+    &_content {
+      display: flex;
+      align-items: center;
+
+      gap: 4px;
+
+      a {
+        text-decoration: none;
+        color: $default-color;
+      }
+    }
+
+    &_count {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  svg {
+    color: $default-color;
+  }
 }

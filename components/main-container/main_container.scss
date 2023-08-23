@@ -1,0 +1,4 @@
+.main-container {
+  display: grid;
+  grid-template-columns: calc($default-width-leftSideBar + $default-padding) 1fr;
+}
