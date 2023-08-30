@@ -1,3 +1,4 @@
+"use client";
 import { LeftMenu } from "@/components/left_menu/left_menu";
 import { MainContainer } from "@/components/main-container/main_container";
 import { MainSection } from "@/components/main-section/main_section";
@@ -6,14 +7,33 @@ import { Navigation } from "@/components/navigation/navigation";
 import { useState } from "react";
 
 export const Today = (): React.ReactNode => {
-  const [isOpenMenu, setOpenMenu] = useState<boolean>();
+  const [isOpenMenu, setOpenMenu] = useState<boolean>(true);
+  const [isOpenModelAddTask, setOpenModelAddTask] = useState<boolean>(false);
   return (
     <>
-      <Navigation>{<></>}</Navigation>
-      <AddTask />
+      <Navigation
+        StateMenu={{
+          stateSetOpenMenu: setOpenMenu,
+          stateIsOpenMenu: isOpenMenu,
+        }}
+        StateAddTask={{
+          stateSetOpenModalTask: setOpenModelAddTask,
+          stateIsOpenModalTask: isOpenModelAddTask,
+        }}
+      >
+        {<></>}
+      </Navigation>
+      {isOpenModelAddTask && (
+        <AddTask
+          StateAddTask={{
+            stateSetOpenModalTask: setOpenModelAddTask,
+            stateIsOpenModalTask: isOpenModelAddTask,
+          }}
+        />
+      )}
 
       <MainContainer>
-        <LeftMenu />
+        {isOpenMenu && <LeftMenu />}
         <MainSection />
       </MainContainer>
     </>

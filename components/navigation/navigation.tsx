@@ -1,13 +1,26 @@
+import {
+  HandlerOpenMenu,
+  HandlerOpenModalTask,
+} from "@/utils/interface/interface";
 import logo_profile from "../../public/images/vaider.png";
 import { ButtonHome } from "./leftside/__button-home/button-home";
 import { ButtonMenu } from "./leftside/__button-menu/button-menu";
 import { InputSearch } from "./leftside/input-search";
-export const Navigation = ({ children }: { children: React.ReactNode }) => {
+export const Navigation = ({
+  children,
+  StateMenu,
+  StateAddTask,
+}: {
+  children: React.ReactNode;
+  StateMenu: HandlerOpenMenu;
+  StateAddTask: HandlerOpenModalTask;
+}) => {
   return (
     <>
       <nav className="navigation">
         <div className="navigation-leftside">
           <ButtonMenu
+            StateMenu={StateMenu}
             colorIcon="white"
             second_class="navigation-leftside__button-menu"
           />
@@ -18,7 +31,14 @@ export const Navigation = ({ children }: { children: React.ReactNode }) => {
           <InputSearch />
         </div>
         <div className="navigation-rightside">
-          <button className="button-navigation navigation-rightside__addTask">
+          <button
+            className="button-navigation navigation-rightside__addTask"
+            onClick={() => {
+              StateAddTask.stateSetOpenModalTask(
+                !StateAddTask.stateIsOpenModalTask
+              );
+            }}
+          >
             <svg width="24" height="24" viewBox="0 0 24 24">
               <g fill="none" fill-rule="evenodd" transform="translate(4 3)">
                 <mask id="jd4FBg" fill="#fff">

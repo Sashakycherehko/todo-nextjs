@@ -12,13 +12,14 @@ $size-height-modal-ls: 164px;
   right: 0;
   bottom: 0;
   height: 100dvh;
-  display: none;
+  display: flex;
   background-color: transparent;
   justify-content: center;
   @media screen and (max-width: 592px) {
     padding: $default-padding;
   }
 }
+
 .modal-action {
   position: absolute;
   width: $size-width-modal-ls;
@@ -51,17 +52,19 @@ $size-height-modal-ls: 164px;
 }
 
 .modal-task {
-  position: relative;
+  position: absolute;
   background-color: #fff;
   border: 1px solid $default-outline-color-search;
   height: max-content;
   min-height: 204px;
   width: 544px;
   top: calc(100dvh / 5.5);
+  left: 50%;
+  transform: translateX(-50%);
   box-shadow: $box-shadow-modal;
   border-radius: $border-radius-ls;
   color: $color-text-modal;
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   &-priority {

@@ -1,13 +1,22 @@
+import { HandlerOpenMenu } from "@/utils/interface/interface";
+
 export const ButtonMenu = ({
   colorIcon,
   second_class = "",
+  StateMenu,
 }: {
   colorIcon: string;
   second_class?: string;
+  StateMenu: HandlerOpenMenu;
 }) => {
   return (
     <>
-      <button className={`button-menu ${second_class}`}>
+      <button
+        className={`button-menu ${second_class}`}
+        onClick={() => {
+          StateMenu.stateSetOpenMenu(!StateMenu.stateIsOpenMenu);
+        }}
+      >
         <svg
           className="menu_icon"
           width="24"
