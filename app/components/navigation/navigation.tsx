@@ -2,7 +2,7 @@ import {
   HandlerOpenMenu,
   HandlerOpenModalTask,
 } from "@/utils/interface/interface";
-import logo_profile from "../../public/images/vaider.png";
+import logo_profile from "@/app/assets/images/avatar.jpg";
 import { ButtonHome } from "./leftside/__button-home/button-home";
 import { ButtonMenu } from "./leftside/__button-menu/button-menu";
 import { InputSearch } from "./leftside/input-search";

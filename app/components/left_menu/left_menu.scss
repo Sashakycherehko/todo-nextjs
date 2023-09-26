@@ -1,5 +1,5 @@
-@import "../../app/variables.scss";
-@import "../../app/mixins.scss";
+@import "../../variables.scss";
+@import "../../mixins.scss";
 $default-color: #212121;
 .left-menu {
   width: calc($default-width-leftSideBar + $default-padding);

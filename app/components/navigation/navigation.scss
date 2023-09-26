@@ -1,10 +1,11 @@
-@import "../../app/variables.scss";
+@import "../../variables.scss";
 
 .button-navigation {
   background-color: transparent;
   outline: none;
   border: none;
   color: #fff;
+  cursor: pointer;
 }
 .navigation {
   height: $default-height-navigation;
